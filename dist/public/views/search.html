@@ -1,0 +1,10 @@
+<form name="searchCtrl.searchForm" ng-submit="searchCtrl.searchForm.$valid ? searchCtrl.onSearchSubmit(searchCtrl.search.keyword) : ''">
+    <div class="row text-left padding-10">
+        <div class="col-sm-4 display-flex">
+            <input ng-required="true" type="text" class="full-width padding-left-10" name="keyword" ng-model="searchCtrl.search.keyword" placeholder="Search..." />
+        </div>
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>

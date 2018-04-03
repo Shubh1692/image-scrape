@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="main-window-css">
+<meta charset="utf-8">
+
+<head>
+    <!-- Css Files -->
+    <link rel="stylesheet" type="text/css" href="css/standard.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="lib/bootstrap-css-only/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+    />
+    <!-- Angular Js Files -->
+    <script src="lib/angular/angular.min.js"></script>
+    <!-- UI Routing Library-->
+    <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <!-- App Js Files -->
+    <script src="js/app.js"></script>
+    <script src="js/app.constant.js"></script>
+    <!-- Analytics App Controller Js Files -->
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/controllers/searchController.js"></script>
+    <script src="js/controllers/searchHistoryController.js"></script>
+    <script src="js/controllers/searchImagesController.js"></script>
+    <!-- Services Js Files -->
+    <script src="js/services/commonMethodService.js"></script>
+</head>
+<!-- Html Code -->
+
+<body ng-app="scrapeImagesModule" class="overflow-body" style="height:97%;" ng-controller="mainController as mainCtrl">
+    <div ui-view class="full-height"></div>
+</body>
+
+</html>

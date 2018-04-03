@@ -1,0 +1,24 @@
+{
+  "name": "scrape_images",
+  "description": "scrape_images in Node.js express apps with TypeScript",
+  "main": "",
+  "authors": [
+    "Shubham vijay"
+  ],
+  "license": "MIT",
+  "homepage": "http://localhost:3000",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "angular-ui-router": "^1.0.15",
+    "angular": "^1.6.9",
+    "bootstrap-css-only": "^4.0.0"
+  }
+}
