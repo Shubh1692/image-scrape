@@ -29,8 +29,6 @@ const imageminPngquant = require('imagemin-pngquant');
  */
 export let _onSearch = (req: Request, res: Response) => {
     if (req.params && req.params.keyword && typeof req.params.keyword === 'string' && req.params.keyword.trim().length) {
-
-        console.log(req.params)
         Search.findOne({
             search_keyword: req.params.keyword.toLowerCase()
         }).exec((err: any, doc: any) => {
@@ -50,17 +48,15 @@ export let _onSearch = (req: Request, res: Response) => {
                     });
                 });
             } else {
-                console.log('go to google', google)
                 google.list({
                     keyword: req.params.keyword.toLowerCase(),
-                    num: 10,
+                    num: MAX_IMAGES,
                     detail: true,
                     nightmare: {
                         show: true
                     }
                 })
                     .then((results: any) => {
-                        console.log(results)
                         const search = new Search({
                             search_keyword: req.params.keyword.toLowerCase()
                         });
@@ -78,7 +74,6 @@ export let _onSearch = (req: Request, res: Response) => {
                                         filename: new Date().getTime() + '.png'
                                     }
                                     download(result.url, options, (err: any) => {
-                                        console.log(err)
                                         if (err) {
                                             search_result.deleted = true
                                             not_found.push(resultIndex);
