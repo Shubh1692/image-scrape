@@ -9,7 +9,6 @@
         searchCtrl.onSearchSubmit = _onSearchSubmit;
         searchCtrl.searchResult = [];
         function _onSearchSubmit(search) {
-            console.log('search keyword', search)
             commonMethodService.serverRequest(NODE_WEB_API.ON_SEARCH + search, 'GET')
                 .then(_onSearchSuccess)
         }

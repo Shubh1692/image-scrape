@@ -57,6 +57,7 @@ export let _onSearch = (req: Request, res: Response) => {
                     }
                 })
                     .then((results: any) => {
+                        console.log(results)
                         const search = new Search({
                             search_keyword: req.params.keyword.toLowerCase()
                         });
@@ -74,6 +75,7 @@ export let _onSearch = (req: Request, res: Response) => {
                                         filename: new Date().getTime() + '.png'
                                     }
                                     download(result.url, options, (err: any) => {
+                                        console.log(err)
                                         if (err) {
                                             search_result.deleted = true
                                             not_found.push(resultIndex);

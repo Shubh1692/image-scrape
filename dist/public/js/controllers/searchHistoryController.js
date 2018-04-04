@@ -15,7 +15,6 @@
         }
 
         function _onSearchHistorySuccess(success) {
-            console.log(success)
             if (success && success.search && success.search.docs.length) {
                 historyCtrl.searchHistory = success.search.docs;
                 historyCtrl.currentPage++;
