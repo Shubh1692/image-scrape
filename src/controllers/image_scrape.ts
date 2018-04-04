@@ -28,8 +28,9 @@ const imageminPngquant = require('imagemin-pngquant');
  * otherwise call images-scraper google method, save files of result, compress result and overwrite save files and show to user
  */
 export let _onSearch = (req: Request, res: Response) => {
-    console.log(req.params)
     if (req.params && req.params.keyword && typeof req.params.keyword === 'string' && req.params.keyword.trim().length) {
+
+        console.log(req.params)
         Search.findOne({
             search_keyword: req.params.keyword.toLowerCase()
         }).exec((err: any, doc: any) => {
