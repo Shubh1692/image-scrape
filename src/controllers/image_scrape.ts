@@ -75,7 +75,7 @@ export let _onSearch = (req: Request, res: Response) => {
                                     }
                                     download(result.url, options, (err: any) => {
                                         if (err) {
-                                            search_result.deleted = true
+                                            search_result[resultIndex].deleted = true
                                             not_found.push(resultIndex);
                                         } else {
                                             source_files.push(options.directory + options.filename);
@@ -103,7 +103,9 @@ export let _onSearch = (req: Request, res: Response) => {
                                                         msg: "Get search result"
                                                     });
                                                 });
-                                            });
+                                            }).catch((err: any) => {
+                                                return res.status(400).send(err);
+                                            });;
                                         }
                                     });
                                 })
