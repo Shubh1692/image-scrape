@@ -50,10 +50,10 @@ export let _onSearch = (req: Request, res: Response) => {
                     });
                 });
             } else {
-                console.log('go to google')
+                console.log('go to google', google)
                 google.list({
                     keyword: req.params.keyword.toLowerCase(),
-                    num: MAX_IMAGES,
+                    num: 10,
                     detail: true,
                     nightmare: {
                         show: true
