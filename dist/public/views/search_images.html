@@ -1,0 +1,28 @@
+<div class="row text-left padding-10">
+    <div class="col-sm-6 padding-10">
+        <b>Search:</b> &nbsp;
+        <span ng-bind="imgCtrl.searchResult.search_keyword.search_keyword"></span>
+        <br/>
+        <b>Search time:</b> &nbsp;
+        <span ng-bind="imgCtrl.searchResult.search_keyword.createdAt | date: 'medium'"></span>
+    </div>
+    <div class="col-sm-6 padding-10">
+        <button type="button" class="btn btn-primary" ui-sref="search">Go to search</button>
+        <button type="button" class="btn btn-primary" ui-sref="search_history">Go to History</button>
+    </div>
+</div>
+<div>
+    <div class="row text-left padding-10">
+        <div class="col-sm-4 display-flex padding-10" ng-repeat="res in imgCtrl.searchResult.search_result track by $index">
+            <div class="list-image" ng-click="imgCtrl.showImage = res;" ng-style="{'background-image': 'url('+'/uploads/' + res.local_file_name+')', 'background-repeat': 'no-repeat', 'background-size': 'contain', width:'100px',  height:'100px', margin: 'auto', padding:'10px'}">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" ng-style="imgCtrl.showImage ? {'display': 'block'}: {'display': 'none'}">
+    <span class="close" ng-click="imgCtrl.showImage = null">&times;</span>
+    <img class="modal-content" ng-src="{{'/uploads/' + imgCtrl.showImage.local_file_name}}" id="img01">
+</div>

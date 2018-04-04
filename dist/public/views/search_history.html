@@ -1,0 +1,20 @@
+<div class="padding-10">
+   
+    <div class="row text-left padding-10 relative">
+        <div class=" go-to-search">
+            <button type="button" class="btn btn-primary" ui-sref="search">Go to search</button>
+            <button type="button" ng-click="historyCtrl.getSearchHistory(historyCtrl.currentPage + 1)" class="btn btn-primary">Load More</button>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item cursor-pointer" ui-sref="search_images({search_id: res._id})" ng-repeat="res in historyCtrl.searchHistory track by $index">
+                <b>Search:</b>&nbsp;
+                <span ng-bind="res.search_keyword"></span>
+                <br/><b>Search time:</b>&nbsp;
+                <span ng-bind="res.createdAt | date: 'medium'"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="row text-center padding-10">
+        
+    </div>
+</div>

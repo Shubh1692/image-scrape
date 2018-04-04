@@ -28,6 +28,7 @@
 
 <body ng-app="scrapeImagesModule" class="overflow-body" style="height:97%;" ng-controller="mainController as mainCtrl">
     <div ui-view class="full-height"></div>
+    <div class="loader"ng-style="mainCtrl.showLoader ? {'display': 'block'}: {'display': 'none'}"></div>
 </body>
 
 </html>

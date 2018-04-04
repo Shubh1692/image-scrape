@@ -4,7 +4,23 @@
             <input ng-required="true" type="text" class="full-width padding-left-10" name="keyword" ng-model="searchCtrl.search.keyword" placeholder="Search..." />
         </div>
         <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit"  class="btn btn-primary">Search</button>
+            <button type="button" ui-sref="search_history" class="btn btn-primary">History</button>
         </div>
     </div>
 </form>
+<div>
+    <div class="row text-left padding-10">
+        <div class="col-sm-4 display-flex padding-10" ng-repeat="res in searchCtrl.searchResult track by $index">
+            <div class="list-image" ng-click="searchCtrl.showImage = res;" ng-style="{'background-image': 'url('+'/uploads/' + res.local_file_name+')', 'background-repeat': 'no-repeat', 'background-size': 'contain', width:'100px',  height:'100px', margin: 'auto', padding:'10px'}">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" ng-style="searchCtrl.showImage ? {'display': 'block'}: {'display': 'none'}">
+    <span class="close" ng-click="searchCtrl.showImage = null">&times;</span>
+    <img class="modal-content" ng-src="{{'/uploads/' + searchCtrl.showImage.local_file_name}}" id="img01">
+</div>

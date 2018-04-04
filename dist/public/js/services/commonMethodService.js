@@ -13,6 +13,8 @@
             var defer = $q.defer();
             var data = postData || '';
             if (navigator.onLine) {
+                if (angular.isFunction(commonMethodService.showHideLoader))
+                    commonMethodService.showHideLoader(true);
                 $http({
                     method: method,
                     url: url,
@@ -28,10 +30,14 @@
                         if (!hideErrorFlag)
                             commonMethodService.serverError(res);
                     }
+                    if (angular.isFunction(commonMethodService.showHideLoader))
+                        commonMethodService.showHideLoader(false);
                 }, function (res, status, headers, config) {
                     if (!hideErrorFlag)
                         commonMethodService.serverError(res);
                     defer.reject(res);
+                    if (angular.isFunction(commonMethodService.showHideLoader))
+                        commonMethodService.showHideLoader(false);
                 });
             } else {
                 alert(ERROR_MESSAGE.NO_INTERNET_CONNECTIVITY);

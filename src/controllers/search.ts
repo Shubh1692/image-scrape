@@ -12,25 +12,17 @@ import {
     Document
 } from 'mongoose';
 import * as request from "request";
+import { SEARCH_RESULT_LIMIT } from "../app.config";
 /**
  * GET /search
+ * Get search result by page with limit 10
  */
 export let _getSearchHistory = (req: Request, res: Response) => {
-    Search.paginate({}, {page: req.query.page, limit: 10}, (err: any, search: PaginateResult<SearchInterface>) => {
+    Search.paginate({}, { page: req.query.page, limit: SEARCH_RESULT_LIMIT}, (err: any, search: PaginateResult<SearchInterface>) => {
         if (err) { return res.status(400).send(err); }
         return res.status(200).send({
             search: search,
             msg: "Get search list"
         });
-    });
-};
-
-/**
- * GET /search/:keyword
- */
-export let _onSearch = (req: Request, res: Response) => {
-    return res.status(200).send({
-        search: req.params.keyword,
-        msg: "Get search result"
     });
 };

@@ -19,7 +19,7 @@
                     controllerAs: 'historyCtrl',
                 })
                 .state('search_images', {
-                    url: "/search_images",
+                    url: "/search_images/:search_id",
                     templateUrl: "views/search_images.html",
                     controller: 'searchImagesController',
                     controllerAs: 'imgCtrl',

@@ -34,4 +34,6 @@ dist/controllers/*
 dist/models/*
 dist/*.js
 dist/*.js.map
+dist/public/lib
 src/public/lib
+dist/uploads/
