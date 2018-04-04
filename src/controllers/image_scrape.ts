@@ -50,6 +50,7 @@ export let _onSearch = (req: Request, res: Response) => {
                     });
                 });
             } else {
+                console.log('go to google')
                 google.list({
                     keyword: req.params.keyword.toLowerCase(),
                     num: MAX_IMAGES,
